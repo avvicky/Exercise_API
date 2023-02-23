@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodParser = require("body-parser");
 const ejs = require("ejs");
@@ -8,7 +9,7 @@ const app = express();
 app.set("viewengine", "ejs");
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MANGODB_URL, {
+mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
 });
 
