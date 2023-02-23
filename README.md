@@ -14,7 +14,7 @@ This API gives you access to over 1300 exercises with individual exercise data a
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-###ListAllExercises
+### ListAllExercises
 
 Returns All the exercises
 
@@ -24,7 +24,7 @@ fetch('https://Path/exercises')
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
 ```
-###ListByName
+### ListByName
 
 Returns the exercises that similar the name field
 
@@ -35,7 +35,7 @@ fetch('https://Path/exercises/searchbyname/{name}')
 	.catch(err => console.error(err));
 ```
 
-###ListofBodyParts
+### ListofBodyParts
 
 Returns the list of BodyParts
 
@@ -46,9 +46,9 @@ fetch('https://Path/exercises/bodypartlist')
 	.catch(err => console.error(err));
 ```
 
-###ListByBodyPart
+### ListByBodyPart
 
-Returns the exercises that trains the bodypart
+Returns the exercises that trains the BodyPart
 
 ```js
 fetch('https://Path/exercises/listbybodypart/{bodypart}')
@@ -57,9 +57,9 @@ fetch('https://Path/exercises/listbybodypart/{bodypart}')
 	.catch(err => console.error(err));
 ```
 
-###ListById
+### ListById
 
-Returns the single Exercise that maches exercise id
+Return the exercise that with the searched id
 
 ```js
 fetch('https://Path/exercises/searchbyid/{id}')
@@ -68,9 +68,9 @@ fetch('https://Path/exercises/searchbyid/{id}')
 	.catch(err => console.error(err));
 ```
 
-###ListOftargetMuscles
+### ListOftargetMuscles
 
-Returns the list of TargedMuscle
+Returns the list of Target Muscle
 
 ```js
 fetch('https://Path/exercises/listoftargetmuscles')
@@ -79,9 +79,9 @@ fetch('https://Path/exercises/listoftargetmuscles')
 	.catch(err => console.error(err));
 ```
 
-###ListByTargetMuscle
+### ListByTargetMuscle
 
-Returns the exercises thet maches Target Muscle Field
+Returns the exercises that trains Target Muscle
 
 ```js
 fetch('https://Path/exercises/listbytargetmuscle/:muscle')
