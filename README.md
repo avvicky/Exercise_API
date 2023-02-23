@@ -5,17 +5,90 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+This API gives you access to over 1300 exercises with individual exercise data and animated demonstrations
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+<!-- USAGE EXAMPLES -->
+## Usage
 
-Use the `BLANK_README.md` to get started.
+###ListAllExercises
+
+Returns All the exercises
+
+```js
+fetch('https://Path/exercises')
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+```
+###ListByName
+
+Returns the exercises that similar the name field
+
+```js
+fetch('https://Path/exercises/searchbyname/{name}')
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+```
+
+###ListofBodyParts
+
+Returns the list of BodyParts
+
+```js
+fetch('https://Path/exercises/bodypartlist')
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+```
+
+###ListByBodyPart
+
+Returns the exercises that trains the bodypart
+
+```js
+fetch('https://Path/exercises/listbybodypart/{bodypart}')
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+```
+
+###ListById
+
+Returns the single Exercise that maches exercise id
+
+```js
+fetch('https://Path/exercises/searchbyid/{id}')
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+```
+
+###ListOftargetMuscles
+
+Returns the list of TargedMuscle
+
+```js
+fetch('https://Path/exercises/listoftargetmuscles')
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+```
+
+###ListByTargetMuscle
+
+Returns the exercises thet maches Target Muscle Field
+
+```js
+fetch('https://Path/exercises/listbytargetmuscle/:muscle')
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
