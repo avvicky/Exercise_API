@@ -146,12 +146,6 @@ app.get("/exercises/listbytargetmuscle/:muscle", function (req, res) {
   );
 });
 
-var port = process.env.PORT;
-
-if (port == null) {
-  port = 4000;
-}
-
-app.listen(port, function () {
+app.listen(3000, function () {
   console.log("server started on port 4000");
 });
