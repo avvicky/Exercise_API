@@ -6,21 +6,12 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
-const corsOptions = {
-  origin: "*",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
-app.use(cors(corsOptions));
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", process.env.ACCESSCAO); // Update to match the domain you will make the request from
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 app.set("viewengine", "ejs");
 app.use(express.static("public"));
 
@@ -46,7 +37,7 @@ app.get("/", function (req, res) {
 app.get("/exercises", function (req, res) {
   Exercise.find(function (err, foundExercises) {
     if (!err) {
-      res.send(foundExercises);
+      res.json(foundExercises);
     } else {
       res.send(err);
     }
@@ -54,7 +45,7 @@ app.get("/exercises", function (req, res) {
 });
 
 app.get("/exercises/bodypartlist", function (req, res) {
-  res.send([
+  res.json([
     "back",
     "cardio",
     "chest",
@@ -74,7 +65,7 @@ app.get("/exercises/listbybodypart/:bodypart", function (req, res) {
     { bodyPart: { $regex: ".*" + requestedbodypart + ".*" } },
     function (err, foundExercises) {
       if (!err) {
-        res.send(foundExercises);
+        res.json(foundExercises);
       } else {
         res.send(err);
       }
@@ -89,7 +80,7 @@ app.get("/exercises/searchbyname/:name", function (req, res) {
     { name: { $regex: ".*" + requestedexercisename + ".*" } },
     function (err, foundExercises) {
       if (!err) {
-        res.send(foundExercises);
+        res.json(foundExercises);
       } else {
         res.send(err);
       }
@@ -101,7 +92,7 @@ app.get("/exercises/searchbyid/:id", function (req, res) {
   const requestedExerciseId = req.params.id;
   Exercise.find({ id: requestedExerciseId }, function (err, foundExercises) {
     if (!err) {
-      res.send(foundExercises);
+      res.json(foundExercises);
     } else {
       res.send(err);
     }
@@ -109,7 +100,7 @@ app.get("/exercises/searchbyid/:id", function (req, res) {
 });
 
 app.get("/exercises/listoftargetmuscles", function (req, res) {
-  res.send([
+  res.json([
     "abductors",
     "abs",
     "adductors",
@@ -138,7 +129,7 @@ app.get("/exercises/listbytargetmuscle/:muscle", function (req, res) {
     { target: { $regex: ".*" + targetedExerciseMuscle + ".*" } },
     function (err, foundExercises) {
       if (!err) {
-        res.send(foundExercises);
+        res.json(foundExercises);
       } else {
         res.send(err);
       }
