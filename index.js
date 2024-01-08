@@ -31,13 +31,13 @@ const exerciseSchema = new mongoose.Schema({
 const Exercise = mongoose.model("Exercise", exerciseSchema);
 
 app.get("/", function (req, res) {
-  res.send("Please specify the data you want");
+  res.sendFile("views/home.html", { root: __dirname });
 });
 
 app.get("/exercises", function (req, res) {
   Exercise.find(function (err, foundExercises) {
     if (!err) {
-      res.json(foundExercises);
+      res.send(foundExercises);
     } else {
       res.send(err);
     }
@@ -45,7 +45,7 @@ app.get("/exercises", function (req, res) {
 });
 
 app.get("/exercises/bodypartlist", function (req, res) {
-  res.json([
+  res.send([
     "back",
     "cardio",
     "chest",
@@ -60,12 +60,15 @@ app.get("/exercises/bodypartlist", function (req, res) {
 });
 
 app.get("/exercises/listbybodypart/:bodypart", function (req, res) {
-  const requestedbodypart = req.params.bodypart;
+  var requestedbodypart = req.params.bodypart;
+  if (requestedbodypart == "all") {
+    requestedbodypart = "";
+  }
   Exercise.find(
     { bodyPart: { $regex: ".*" + requestedbodypart + ".*" } },
     function (err, foundExercises) {
       if (!err) {
-        res.json(foundExercises);
+        res.send(foundExercises);
       } else {
         res.send(err);
       }
@@ -80,7 +83,7 @@ app.get("/exercises/searchbyname/:name", function (req, res) {
     { name: { $regex: ".*" + requestedexercisename + ".*" } },
     function (err, foundExercises) {
       if (!err) {
-        res.json(foundExercises);
+        res.send(foundExercises);
       } else {
         res.send(err);
       }
@@ -92,7 +95,7 @@ app.get("/exercises/searchbyid/:id", function (req, res) {
   const requestedExerciseId = req.params.id;
   Exercise.find({ id: requestedExerciseId }, function (err, foundExercises) {
     if (!err) {
-      res.json(foundExercises);
+      res.send(foundExercises);
     } else {
       res.send(err);
     }
@@ -100,7 +103,7 @@ app.get("/exercises/searchbyid/:id", function (req, res) {
 });
 
 app.get("/exercises/listoftargetmuscles", function (req, res) {
-  res.json([
+  res.send([
     "abductors",
     "abs",
     "adductors",
@@ -129,7 +132,7 @@ app.get("/exercises/listbytargetmuscle/:muscle", function (req, res) {
     { target: { $regex: ".*" + targetedExerciseMuscle + ".*" } },
     function (err, foundExercises) {
       if (!err) {
-        res.json(foundExercises);
+        res.send(foundExercises);
       } else {
         res.send(err);
       }
