@@ -37,7 +37,7 @@ app.get("/", function (req, res) {
 app.get("/exercises", function (req, res) {
   Exercise.find(function (err, foundExercises) {
     if (!err) {
-      res.json(foundExercises);
+      res.send(foundExercises);
     } else {
       res.send(err);
     }
@@ -45,7 +45,7 @@ app.get("/exercises", function (req, res) {
 });
 
 app.get("/exercises/bodypartlist", function (req, res) {
-  res.json([
+  res.send([
     "back",
     "cardio",
     "chest",
@@ -65,7 +65,7 @@ app.get("/exercises/listbybodypart/:bodypart", function (req, res) {
     { bodyPart: { $regex: ".*" + requestedbodypart + ".*" } },
     function (err, foundExercises) {
       if (!err) {
-        res.json(foundExercises);
+        res.send(foundExercises);
       } else {
         res.send(err);
       }
@@ -80,7 +80,7 @@ app.get("/exercises/searchbyname/:name", function (req, res) {
     { name: { $regex: ".*" + requestedexercisename + ".*" } },
     function (err, foundExercises) {
       if (!err) {
-        res.json(foundExercises);
+        res.send(foundExercises);
       } else {
         res.send(err);
       }
@@ -92,7 +92,7 @@ app.get("/exercises/searchbyid/:id", function (req, res) {
   const requestedExerciseId = req.params.id;
   Exercise.find({ id: requestedExerciseId }, function (err, foundExercises) {
     if (!err) {
-      res.json(foundExercises);
+      res.send(foundExercises);
     } else {
       res.send(err);
     }
@@ -100,7 +100,7 @@ app.get("/exercises/searchbyid/:id", function (req, res) {
 });
 
 app.get("/exercises/listoftargetmuscles", function (req, res) {
-  res.json([
+  res.send([
     "abductors",
     "abs",
     "adductors",
@@ -129,7 +129,7 @@ app.get("/exercises/listbytargetmuscle/:muscle", function (req, res) {
     { target: { $regex: ".*" + targetedExerciseMuscle + ".*" } },
     function (err, foundExercises) {
       if (!err) {
-        res.json(foundExercises);
+        res.send(foundExercises);
       } else {
         res.send(err);
       }
