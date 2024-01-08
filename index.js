@@ -31,7 +31,7 @@ const exerciseSchema = new mongoose.Schema({
 const Exercise = mongoose.model("Exercise", exerciseSchema);
 
 app.get("/", function (req, res) {
-  res.sendFile("views/home.html", { root: __dirname });
+  res.sendFile("./views/home.html", { root: __dirname });
 });
 
 app.get("/exercises", function (req, res) {
