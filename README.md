@@ -9,8 +9,6 @@
 
 This API gives you access to over 1300 exercises with individual exercise data and animated demonstrations
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 
