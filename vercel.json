@@ -10,6 +10,8 @@
         {
             "src":"/(.*)",
             "dest": "/"
-        }
+        },
+        { "handle": "filesystem" },
+        { "src": "/views/(.*)", "dest": "/views/$1" }
     ]
 }
