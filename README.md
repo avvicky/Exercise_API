@@ -19,7 +19,7 @@ This API gives you access to over 1300 exercises with individual exercise data a
 Returns All the exercises
 
 ```js
-fetch('https://Path/exercises')
+fetch('https://exercise-api-lyart.vercel.app/exercises')
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
@@ -29,7 +29,7 @@ fetch('https://Path/exercises')
 Returns the exercises that similar the name field
 
 ```js
-fetch('https://Path/exercises/searchbyname/{name}')
+fetch('https://exercise-api-lyart.vercel.app/exercises/searchbyname/{name}')
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
@@ -40,7 +40,7 @@ fetch('https://Path/exercises/searchbyname/{name}')
 Returns the list of BodyParts
 
 ```js
-fetch('https://Path/exercises/bodypartlist')
+fetch('https://exercise-api-lyart.vercel.app/exercises/bodypartlist')
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
@@ -51,7 +51,7 @@ fetch('https://Path/exercises/bodypartlist')
 Returns the exercises that trains the BodyPart
 
 ```js
-fetch('https://Path/exercises/listbybodypart/{bodypart}')
+fetch('https://exercise-api-lyart.vercel.app/exercises/listbybodypart/{bodypart}')
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
@@ -62,7 +62,7 @@ fetch('https://Path/exercises/listbybodypart/{bodypart}')
 Return the exercise that with the searched id
 
 ```js
-fetch('https://Path/exercises/searchbyid/{id}')
+fetch('https://exercise-api-lyart.vercel.app/exercises/searchbyid/{id}')
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
@@ -73,7 +73,7 @@ fetch('https://Path/exercises/searchbyid/{id}')
 Returns the list of Target Muscle
 
 ```js
-fetch('https://Path/exercises/listoftargetmuscles')
+fetch('https://exercise-api-lyart.vercel.app/exercises/listoftargetmuscles')
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
@@ -84,7 +84,7 @@ fetch('https://Path/exercises/listoftargetmuscles')
 Returns the exercises that trains Target Muscle
 
 ```js
-fetch('https://Path/exercises/listbytargetmuscle/:muscle')
+fetch('https://exercise-api-lyart.vercel.app/exercises/listbytargetmuscle/:muscle')
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
