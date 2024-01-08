@@ -31,7 +31,7 @@ const exerciseSchema = new mongoose.Schema({
 const Exercise = mongoose.model("Exercise", exerciseSchema);
 
 app.get("/", function (req, res) {
-  res.send("Please specify the data you want");
+  res.sendFile("views/home.html", { root: __dirname });
 });
 
 app.get("/exercises", function (req, res) {
@@ -60,7 +60,10 @@ app.get("/exercises/bodypartlist", function (req, res) {
 });
 
 app.get("/exercises/listbybodypart/:bodypart", function (req, res) {
-  const requestedbodypart = req.params.bodypart;
+  var requestedbodypart = req.params.bodypart;
+  if (requestedbodypart == "all") {
+    requestedbodypart = "";
+  }
   Exercise.find(
     { bodyPart: { $regex: ".*" + requestedbodypart + ".*" } },
     function (err, foundExercises) {
