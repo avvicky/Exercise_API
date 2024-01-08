@@ -31,7 +31,9 @@ const exerciseSchema = new mongoose.Schema({
 const Exercise = mongoose.model("Exercise", exerciseSchema);
 
 app.get("/", function (req, res) {
-  res.sendFile("/views/home.html", { root: __dirname });
+  var someHTML =
+    '<a href="https://github.com/avvicky/Exercise_API">Github Readme</a>';
+  res.send(someHTML);
 });
 
 app.get("/exercises", function (req, res) {
